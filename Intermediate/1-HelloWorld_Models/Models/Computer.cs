@@ -22,4 +22,8 @@ public class Computer
             Motherboard = "";
         }
     }
+    public override string ToString()
+    {
+        return $"Motherboard: {Motherboard}\nCPUCores: {CPUCores}\nHasWifi: {HasWifi}\nHasLTE: {HasLTE}\nReleaseDate: {ReleaseDate}\nPrice: {Price}\nVideoCard: {VideoCard}";
+    }
 }
