@@ -62,3 +62,4 @@ C:\Users\Torin\projects\dotnet-course-code\Intermediate\1-HelloWorld_Models\bin\
 C:\Users\Torin\projects\dotnet-course-code\Intermediate\1-HelloWorld_Models\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\Torin\projects\dotnet-course-code\Intermediate\1-HelloWorld_Models\obj\Debug\net8.0\HelloWorld.csproj.AssemblyReference.cache
 C:\Users\Torin\projects\dotnet-course-code\Intermediate\1-HelloWorld_Models\obj\Debug\net8.0\HelloWorld.csproj.CopyComplete
+C:\Users\Torin\projects\dotnet-course-code\Intermediate\1-HelloWorld_Models\obj\Debug\net8.0\HelloWorld.sourcelink.json
