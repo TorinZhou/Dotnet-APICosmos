@@ -10,14 +10,6 @@ internal class Program
 
     static void Main(string[] args)
     {
-        var dapper = new DataContextDapper();
-
-        string sqlCommand = "SELECT GETDATE()";
-
-        var databaseTime = dapper.LoadDataSingle<DateTime>(sqlCommand);
-
-        System.Console.WriteLine(databaseTime);
-
         var myComputer = new Computer()
         {
             Motherboard = "B650m Aorus elite ax",
@@ -27,8 +19,19 @@ internal class Program
             Price = 2000.88m,
             VideoCard = "RTX 4070"
         };
+        var myFutureComputer = new Computer()
+        {
+            Motherboard = "B650m Aorus pro ax",
+            HasWifi = true,
+            HasLTE = true,
+            ReleaseDate = DateTime.Now,
+            Price = 4000.88m,
+            VideoCard = "RTX 4090"
+        };
+        var dapper = new DataContextDapper();
 
-        string sql = @"INSERT INTO TutorialAppSchema.Computer (
+
+        string sql = @"INSERT INTO TutorialAppSchema.Computers (
                             Motherboard,
                             HasWifi,
                             HasLTE,
@@ -48,13 +51,14 @@ internal class Program
         bool result = dapper.ExecuteSqlWithPayload(sql, myComputer);
 
         string sqlSelect = @"SELECT 
-                                Computer.Motherboard,
-                                Computer.HasWifi,
-                                Computer.HasLTE,
-                                Computer.ReleaseDate,
-                                Computer.Price,
-                                Computer.VideoCard 
-                            FROM TutorialAppSchema.Computer";
+                                Computers.ComputerId,
+                                Computers.Motherboard,
+                                Computers.HasWifi,
+                                Computers.HasLTE,
+                                Computers.ReleaseDate,
+                                Computers.Price,
+                                Computers.VideoCard 
+                            FROM TutorialAppSchema.Computers";
 
         var computers = dapper.LoadData<Computer>(sqlSelect);
 
@@ -63,6 +67,18 @@ internal class Program
             System.Console.WriteLine(computer);
             System.Console.WriteLine("--------------------------");
         }
+        using (var entityFrameworkCore = new DataContextEF())
+        {
+            entityFrameworkCore.Add(myFutureComputer);
+            entityFrameworkCore.SaveChanges();
+            var computersEF = entityFrameworkCore.Computers;
+            foreach (var computer in computersEF)
+            {
+                System.Console.WriteLine(computer);
+                System.Console.WriteLine("--------------------------");
+            }
+        }
+
         Console.ReadKey();
     }
 
