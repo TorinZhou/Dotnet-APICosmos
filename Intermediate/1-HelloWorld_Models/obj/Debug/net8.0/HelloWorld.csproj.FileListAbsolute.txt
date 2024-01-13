@@ -63,3 +63,10 @@ C:\Users\Torin\projects\dotnet-course-code\Intermediate\1-HelloWorld_Models\bin\
 C:\Users\Torin\projects\dotnet-course-code\Intermediate\1-HelloWorld_Models\obj\Debug\net8.0\HelloWorld.csproj.AssemblyReference.cache
 C:\Users\Torin\projects\dotnet-course-code\Intermediate\1-HelloWorld_Models\obj\Debug\net8.0\HelloWorld.csproj.CopyComplete
 C:\Users\Torin\projects\dotnet-course-code\Intermediate\1-HelloWorld_Models\obj\Debug\net8.0\HelloWorld.sourcelink.json
+C:\Users\Torin\projects\dotnet-course-code\Intermediate\1-HelloWorld_Models\bin\Debug\net8.0\Microsoft.Extensions.Configuration.dll
+C:\Users\Torin\projects\dotnet-course-code\Intermediate\1-HelloWorld_Models\bin\Debug\net8.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\Torin\projects\dotnet-course-code\Intermediate\1-HelloWorld_Models\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Json.dll
+C:\Users\Torin\projects\dotnet-course-code\Intermediate\1-HelloWorld_Models\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\Torin\projects\dotnet-course-code\Intermediate\1-HelloWorld_Models\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\Torin\projects\dotnet-course-code\Intermediate\1-HelloWorld_Models\bin\Debug\net8.0\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\Torin\projects\dotnet-course-code\Intermediate\1-HelloWorld_Models\bin\Debug\net8.0\appsettings.json

@@ -2,6 +2,7 @@
 using Microsoft.Data.SqlClient;
 using HelloWorld.Models;
 using HelloWorld.Data;
+using Microsoft.Extensions.Configuration;
 
 namespace HelloWorld;
 
@@ -10,6 +11,10 @@ internal class Program
 
     static void Main(string[] args)
     {
+        var config = new ConfigurationBuilder()
+            .AddJsonFile("appsettings.json")
+            .Build(); //need a new package to gain access to this ConfigurationBuilder
+
         var myComputer = new Computer()
         {
             Motherboard = "B650m Aorus elite ax",
@@ -28,9 +33,8 @@ internal class Program
             Price = 4000.88m,
             VideoCard = "RTX 4090"
         };
-        var dapper = new DataContextDapper();
 
-
+        var dapper = new DataContextDapper(config);
         string sql = @"INSERT INTO TutorialAppSchema.Computers (
                             Motherboard,
                             HasWifi,
@@ -67,7 +71,7 @@ internal class Program
             System.Console.WriteLine(computer);
             System.Console.WriteLine("--------------------------");
         }
-        using (var entityFrameworkCore = new DataContextEF())
+        using (var entityFrameworkCore = new DataContextEF(config))
         {
             entityFrameworkCore.Add(myFutureComputer);
             entityFrameworkCore.SaveChanges();
