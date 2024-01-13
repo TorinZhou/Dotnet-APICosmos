@@ -1,0 +1,34 @@
+2024-01-13 11:36:52 AM
+INSERT INTO TutorialAppSchema.Computers (
+                            Motherboard,
+                            HasWifi,
+                            HasLTE,
+                            ReleaseDate,
+                            Price,
+                            VideoCard
+                        )
+                        VALUES (
+                            @Motherboard,
+                            @HasWifi,
+                            @HasLTE,
+                            @ReleaseDate,
+                            @Price,
+                            @VideoCard
+                        )
+2024-01-13 12:40:50 PM
+INSERT INTO TutorialAppSchema.Computers (
+                            Motherboard,
+                            HasWifi,
+                            HasLTE,
+                            ReleaseDate,
+                            Price,
+                            VideoCard
+                        )
+                        VALUES (
+                            @Motherboard,
+                            @HasWifi,
+                            @HasLTE,
+                            @ReleaseDate,
+                            @Price,
+                            @VideoCard
+                        )
