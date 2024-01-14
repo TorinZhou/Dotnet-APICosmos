@@ -20,9 +20,45 @@ internal class Program
         var dapper = new DataContextDapper(config);
 
         var computersJson = File.ReadAllText("Computers.json");
-        System.Console.WriteLine(computersJson);
+        // System.Console.WriteLine(computersJson);
 
-        var computers = JsonSerializer.Deserialize<Computer>(computersJson);
+        var options = new JsonSerializerOptions()
+        {
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+        };
+
+        IEnumerable<Computer>? computers = JsonSerializer.Deserialize<IEnumerable<Computer>>(computersJson, options);
+
+        if (computers is not null)
+        {
+            foreach (var computer in computers)
+            {
+                string sql = @"INSERT INTO TutorialAppSchema.Computers (
+                            Motherboard,
+                            HasWifi,
+                            HasLTE,
+                            ReleaseDate,
+                            Price,
+                            VideoCard
+                            )
+                            VALUES (
+                                @Motherboard,
+                                @HasWifi,
+                                @HasLTE,
+                                @ReleaseDate,
+                                @Price,
+                                @VideoCard
+                            )";
+                dapper.ExecuteSqlWithPayload(sql, computer);
+            }
+        }
+
+
+        string computersJsonSystemTextJson = JsonSerializer.Serialize(computers, options);
+        File.WriteAllText("computersJsonSystemTextJson", computersJsonSystemTextJson);
+
+        System.Console.WriteLine("Success. Press any key to Close.");
+        Console.ReadKey();
     }
 
 }

@@ -8,7 +8,7 @@ public class Computer
     public int? CPUCores { get; set; } = 8; //Delete this question mark, the code would broke.EF Core don't like it. because in my database, some rows(rows created by dapper are all null for cpucores.)
     public bool HasWifi { get; set; }
     public bool HasLTE { get; set; }
-    public DateTime ReleaseDate { get; set; }
+    public DateTime? ReleaseDate { get; set; }
     public decimal Price { get; set; }
     public string VideoCard { get; set; } = "GTX 1060";
 
