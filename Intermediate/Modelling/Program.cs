@@ -29,13 +29,19 @@ internal class Program
         var mapper = new Mapper(mapperConfiguration);
         // System.Console.WriteLine(computersJson);
 
-        // var options = new JsonSerializerOptions()
-        // {
-        //     PropertyNamingPolicy = JsonNamingPolicy.CamelCase
-        // };
+        var options = new JsonSerializerOptions()
+        {
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+        };
 
-        // IEnumerable<Computer>? computers = JsonSerializer.Deserialize<IEnumerable<Computer>>(computersJson, options);
-
+        IEnumerable<Computer>? computers = JsonSerializer.Deserialize<IEnumerable<Computer>>(computersJson);
+        if (computers is not null)
+        {
+            foreach (var computer in computers)
+            {
+                System.Console.WriteLine(computer.Motherboard);
+            }
+        }
         // if (computers is not null)
         // {
         //     foreach (var computer in computers)
